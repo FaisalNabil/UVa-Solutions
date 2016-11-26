@@ -12,16 +12,17 @@ class Main
 		// your code goes here
 		Scanner in=new Scanner(System.in);
 		while(in.hasNext()){
-			long number=in.nextInt(),ancestors=0,temp1=0,temp2=1;
-			if(number==0)
+			int number=in.nextInt();
+			long male=0,total=1,temp=0;
+			if(number<0)
 				break;
 			for(int i=0;i<number;i++){
+				temp=male;
+				male=total;
+				total=temp+total+1;
 				
-				ancestors=temp1+temp2;
-				temp1=temp2;
-				temp2=ancestors;
 			}
-			System.out.println(ancestors);
+			System.out.println(male+" "+total);
 		}
 	}
 }

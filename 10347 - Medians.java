@@ -12,16 +12,17 @@ class Main
 		// your code goes here
 		Scanner in=new Scanner(System.in);
 		while(in.hasNext()){
-			long number=in.nextInt(),ancestors=0,temp1=0,temp2=1;
-			if(number==0)
-				break;
-			for(int i=0;i<number;i++){
-				
-				ancestors=temp1+temp2;
-				temp1=temp2;
-				temp2=ancestors;
+			double m1=in.nextDouble();
+			double m2=in.nextDouble();
+			double m3=in.nextDouble();
+			if(m1+m2<=m3 || m1+m3<=m2 || m3+m2<=m1 ){
+				System.out.println("-1.000");
+				continue;
 			}
-			System.out.println(ancestors);
+			double s=(m1+m2+m3)/2;
+			double area=Math.sqrt(s*(s-m1)*(s-m2)*(s-m3))*(4.0/3.0);
+			System.out.printf("%.3f",area);
+			System.out.println();
 		}
 	}
 }

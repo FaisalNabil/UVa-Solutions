@@ -11,17 +11,18 @@ class Main
 	{
 		// your code goes here
 		Scanner in=new Scanner(System.in);
+		ArrayList<Long> list=new ArrayList<Long>();
 		while(in.hasNext()){
-			long number=in.nextInt(),ancestors=0,temp1=0,temp2=1;
-			if(number==0)
-				break;
-			for(int i=0;i<number;i++){
-				
-				ancestors=temp1+temp2;
-				temp1=temp2;
-				temp2=ancestors;
+			list.add(in.nextLong());
+			Collections.sort(list);
+			if(list.size()%2==0){
+				long sum=0;
+				sum=list.get(list.size()/2)+list.get((list.size()/2)-1);
+				System.out.println(sum/2);
 			}
-			System.out.println(ancestors);
+			else
+				System.out.println(list.get(list.size()/2));
+			
 		}
 	}
 }

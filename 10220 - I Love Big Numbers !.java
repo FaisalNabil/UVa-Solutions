@@ -3,6 +3,7 @@
 import java.util.*;
 import java.lang.*;
 import java.io.*;
+import java.math.BigInteger;
 
 /* Name of the class has to be "Main" only if the class is public. */
 class Main
@@ -12,16 +13,19 @@ class Main
 		// your code goes here
 		Scanner in=new Scanner(System.in);
 		while(in.hasNext()){
-			long number=in.nextInt(),ancestors=0,temp1=0,temp2=1;
-			if(number==0)
-				break;
-			for(int i=0;i<number;i++){
-				
-				ancestors=temp1+temp2;
-				temp1=temp2;
-				temp2=ancestors;
+			int number=in.nextInt();
+			BigInteger sum=BigInteger.ONE;
+			for(int i=1;i<=number;i++){
+				sum=sum.multiply(BigInteger.valueOf(i));
 			}
-			System.out.println(ancestors);
+			String output=""+sum;
+			int total=0;
+			
+			for(int i=0;i<output.length();i++){
+				char c=output.charAt(i);
+				total+=((int)c-48);
+			}
+			System.out.println(total);
 		}
 	}
 }
